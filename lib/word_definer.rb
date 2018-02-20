@@ -1,26 +1,28 @@
 class Word
-  @@words = []
-  attr_accessor :word
+  @@word_list = []
+  attr_accessor :word, :definitions
+  attr_reader :id
 
-  def initialize
-    @word_list = [{"title" => "happy", "definitions" => ["makes you feel good"]}, {"title" => "bubble", "definitions" => ["round ball filled with air that floats"]}]
-    @word = {"title" => "", "definitions" => []}
+  def initialize (word)
+    @word = word
+    @definitions = []
+    @id = @@word_list.length + 1
 
   end
 
-  def show_word
-    @word.fetch("title")
+  def save_word (word)
+    @@words.push(word)
   end
 
-  def define
-    @word.fetch("definitions")
+  def self.all
+    @@words
   end
 
-  def add_word(title)
-    @word["title"] = title
+  def definitions (word)
+    word.definitions
   end
 
-  def add_definition(definition)
-    @word["definitions"].push(definition)
+  def add_def(definition)
+    @definitions.push(definition)
   end
 end
