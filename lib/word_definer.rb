@@ -10,12 +10,12 @@ class Word
 
   end
 
-  def save_word (word)
-    @@words.push(word)
+  def save_word
+    @@word_list.push(self)
   end
 
   def self.all
-    @@words
+    @@word_list
   end
 
   def definitions (word)

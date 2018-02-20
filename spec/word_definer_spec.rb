@@ -6,14 +6,14 @@ require 'pry'
 describe('Word') do
   it('returns a word') do
     first_word = Word.new("happy")
-    first_word.save_word(first_word)
-    expect(Word.all).to(eq(["happy"]))
+    first_word.save_word
+    expect(Word.all()[0].word).to(eq("happy"))
   end
 
   it('returns a definition from a word') do
     first_word = Word.new("happy")
     first_word.add_def("makes you feel good")
-    expect(first_word.define).to(eq(["makes you feel good"]))
+    expect(first_word.define).to(eq("makes you feel good"))
   end
   #
   # it('adds another word to the list') do
